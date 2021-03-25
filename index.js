@@ -76,15 +76,63 @@ const titles = [
 
 //Array of authors and the book they wrote
 //"--- wrote --- in ---"
-
-//Sort books from oldest to most recent
-
+console.log("Question 1");
+for (let i = 0; i < books.length; i++) {
+  console.log(books[i].authorFirst + " " + books[i].authorLast + " wrote " + books[i].name + " in " + books[i].publishDate);
+}
+//Sort books from oldest to most recent\
+console.log("Question 2");
+var bookDate = [];
+for (let i = 0; i < books.length; i++) {
+  bookDate[i] = books[i].publishDate;
+}
+bookDate.sort(function(a, b){return a-b});
+console.log(bookDate);
 //sort books alphabetically
-
+console.log("Question 3");
+var bookName = [];
+for (let i = 0; i < books.length; i++) {
+  bookName[i] = books[i].name;
+}
+bookName.sort();
+console.log(bookName);
 //Find who wrote War and Peace
-
+console.log("Question 4");
+for (let i = 0; i < books.length; i++) {
+  if(books[i].name === "War and Peace")
+  {
+    console.log(books[i].authorFirst + " " + books[i].authorLast);
+  }
+}
 //how many books were written before 1900?
-
+console.log("Question 5");
+var amt = 0;
+for (let i = 0; i < books.length; i++) {
+  if(books[i].publishDate < 1900){
+    amt++;
+  }
+}
+console.log(amt);
 //was there at least one book published within the last 100 years?
-
+const currentYear = 2021;
+console.log("Question 6");
+for (let i = 0; i < books.length; i++) {
+  if(books[i].publishDate <= currentYear - 100){
+    console.log("yes");
+    break;
+  }
+}
 //was every book published within the last 100 years?
+var everyBook = false;
+console.log("Question 7");
+for (let i = 0; i < books.length; i++) {
+  if(books[i].publishDate <= currentYear - 100){
+    everyBook = true;
+  }
+  else
+  {
+    everyBook = false;
+    break;
+  }
+}
+console.log(everyBook);
